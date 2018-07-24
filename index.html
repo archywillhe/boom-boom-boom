@@ -46,7 +46,7 @@
             function name(people){
                 return _.map(people,function(a){ return a.Name})
             }
-            var names = _.last(name(people),500)
+            var names = name(people)
             makeSlotMachine(names,"ring")
 
             var s = $("#stage")

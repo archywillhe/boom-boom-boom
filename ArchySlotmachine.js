@@ -44,7 +44,7 @@ var allDegrees = []
 function createSlots (ring) {
 
 	var slotAngle = 900 / SLOTS_PER_REEL;
-	var seed = getSeed();
+
 	for (var i = 0; i < SLOTS_PER_REEL; i ++) {
 		var slot = document.createElement('div');
 		slot.className = 'slot';
@@ -60,29 +60,15 @@ function createSlots (ring) {
 	}
 }
 
-function getSeed() {
-	// generate random number smaller than 13 then floor it to settle between 0 and 12 inclusive
-	return Math.floor(Math.random()*(SLOTS_PER_REEL));
-}
 
 function spin() {
-	//var txt = 'seeds: ';
-		// var oldSeed = -1;
-		// /*
-		// checking that the old seed from the previous iteration is not the same as the current iteration;
-		// if this happens then the reel will not spin at all
-		// */
-		// var oldClass = $('#ring'+i).attr('class');
-		// if(oldClass.length > 4) {
-		// 	oldSeed = parseInt(oldClass.slice(10));
-		// 	console.log(oldSeed);
-		// }
-		var seed = getSeed();
 		dom.css('animation','back-spin 2s, spiny 999s forwards');
 	}
 
+var initAngleOfMiddle = 720
+
 function getNameBasedOnFinalDegree(deg){
-    var initAngleOfMiddle = 718
+
     var indexAt0 = _.findIndex(allDegrees, function(x){return x >= initAngleOfMiddle})
     console.log(indexAt0, arrayData[indexAt0])
     if(!_.isUndefined(deg)){
@@ -99,11 +85,17 @@ function getNameBasedOnFinalDegree(deg){
 }
 }
 
+function getWhereToStop(rotateX){
+    let next= rotateX-50
+    var degree = _.find(allDegrees, function(x){return x >=  (-(next) + initAngleOfMiddle)})
+    console.log("getting the next avaialble slot")
+    return -(degree - initAngleOfMiddle)
+}
+
 function pause(){
     console.log("stop")
     let t = _getTransform(dom)
-    console.log(t)
-    let final = t.rotateX-50
+    let final = getWhereToStop(t.rotateX)
     var winner = getNameBasedOnFinalDegree(final)
     var anim = CSSAnimations.create('lol', {
     '0%': { 'transform': 'rotateX('+t.rotateX+'deg)' },

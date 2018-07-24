@@ -84,9 +84,14 @@ function spin() {
 function getNameBasedOnFinalDegree(deg){
     var initAngleOfMiddle = 720
     var indexAt0 = _.findIndex(allDegrees, function(x){return x >= initAngleOfMiddle})
-    // console.log(arrayData[indexAt0])
-    let partitioning = 360 / arrayData.count
-    // let howMan
+    console.log(arrayData[indexAt0])
+    if(!_.isUndefined(deg)){
+    let partitioning = 360 / arrayData.length
+    let indx = Math.round(deg * partitioning)
+    console.log(indx)
+    let currentIndx = (indexAt0 + indx) % arrayData.length
+    console.log(currentIndx,arrayData[currentIndx])
+}
 }
 
 function pause(){
@@ -109,6 +114,7 @@ function pause(){
     $(document).ready(function() {
         console.log("made!")
     	createSlots($('#'+name), arrayData);
+        getNameBasedOnFinalDegree(undefined)
         let t = _getTransform(dom)
         console.log("init")
         console.log(t)

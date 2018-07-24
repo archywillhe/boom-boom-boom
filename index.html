@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Firework!</title>
+
+<link rel="stylesheet" href="./main.css">
+    </head>
+    <body>
+        <div id="gui"></div>
+<div id="canvas-container">
+  <div id="mountains2"></div>
+  <div id="mountains1"></div>
+  <div id="skyline"></div>
+  <div id="stage" class="perspective-on">
+        <div id="rotate">
+              <div id="ring" class="ring"></div>
+  </div>
+  </div>
+</div>
+
+    <script type="text/javascript" src="./css-animationsz.js">
+
+    </script>
+        <script type="text/javascript" src="./people_from_5_46PM_23RD_JULY.js">
+        </script>
+        <script type="text/javascript" src="./underscore.js">
+        </script>
+        <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js">
+        </script>
+        <script src="firework.js"></script>
+        <script>
+            fworks.partCount = 280
+            fworks.lineWidth = 10
+            fworks.speed = 9
+            fworks.showShockwave = true
+            fworks.showTarget = false
+        </script>
+        <script type="text/javascript" src="./ArchySlotmachine.js">
+        </script>
+        <script>
+
+            // function allDepartments(people){
+            //     return _.union(_.map(people, function(a){return a.Dept}))
+            // }
+            // function peopleFromDepartment(people,deparment){
+            //     return _.filter(people, function(a){ return a.Dept == deparment})
+            // }
+            function name(people){
+                return _.map(people,function(a){ return a.Name})
+            }
+            var names = _.last(name(people),500)
+            makeSlotMachine(names,"ring")
+
+            var s = $("#stage")
+            s.css("margin-left",0-s.width()/2 +"px")
+
+        </script>
+
+        <!-- <img src="./statue.png" class="statue1"> -->
+        <!-- <img src="./statue.png" class="statue2"> -->
+
+        <div class='blurred-box'>
+        </div>
+
+    </body>
+</html>

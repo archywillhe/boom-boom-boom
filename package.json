@@ -1,0 +1,14 @@
+{
+  "name": "fireworkdesu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "5_46PM_23RD_JULY.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery-slotmachine": "^4.0.1"
+  }
+}

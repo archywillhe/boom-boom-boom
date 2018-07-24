@@ -1,0 +1,215 @@
+html, body {
+margin: 0;
+padding: 0;
+}
+
+body {
+background: #171717;
+color: #999;
+font: 100%/18px helvetica, arial, sans-serif;
+}
+
+a {
+color: #2fa1d6;
+font-weight: bold;
+text-decoration: none;
+}
+
+a:hover {
+color: #fff;
+}
+
+#canvas-container {
+background: #000 url(https://jackrugile.com/lab/fireworks-v2/images/bg.jpg);
+height: 100%;
+left: 0%;
+position: absolute;
+top: 0%;
+width: 100%;
+z-index: 999;
+}
+
+canvas {
+cursor: crosshair;
+display: block;
+position: relative;
+z-index: 100;
+}
+
+canvas:active {
+cursor: crosshair;
+}
+
+#skyline {
+background: url(https://jackrugile.com/lab/fireworks-v2/images/skyline.png) repeat-x 50% 0;
+bottom: 0;
+height: 135px;
+left: 0;
+position: absolute;
+width: 100%;
+z-index: 1;
+}
+
+#mountains1 {
+background: url(https://jackrugile.com/lab/fireworks-v2/images/mountains1.png) repeat-x 40% 0;
+bottom: 0;
+height: 200px;
+left: 0;
+position: absolute;
+width: 100%;
+z-index: 1;
+}
+
+#mountains2 {
+background: url(https://jackrugile.com/lab/fireworks-v2/images/mountains2.png) repeat-x 30% 0;
+bottom: 0;
+height: 250px;
+left: 0;
+position: absolute;
+width: 100%;
+z-index: 1;
+}
+
+#gui {
+right: 0;
+position: fixed;
+top: 0;
+z-index: 3;
+}
+
+
+.perspective-on {
+-webkit-perspective: 1000px;
+-moz-perspective: 1000px;
+  perspective: 1000px;    /* Setting the perspective of the contents of the stage but not the stage itself*/
+}
+.perspective-off {
+-webkit-perspective: 0;
+-moz-perspective: 0;
+  perspective: 0;
+}
+
+#rotate {
+margin: 0 auto 0;
+width: 90px;
+height: 220px;
+padding-top: 200px;
+/* Ensure that we're in 3D space */
+transform-style: preserve-3d;
+}
+
+.ring {
+margin: 0 auto;
+height: 80px;
+width: 80px;
+float: left;
+transform-style: preserve-3d;
+-webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+animation-fill-mode: forwards;
+}
+
+.backface-on {
+-webkit-backface-visibility: visible;
+-moz-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+.tilted {
+transform: rotateY(45deg);
+}
+/*=====*/
+.spin-0     { transform: rotateX(-3719deg); }
+.spin-1     { transform: rotateX(-3749deg); }
+.spin-2     { transform: rotateX(-3779deg); }
+.spin-3     { transform: rotateX(-3809deg); }
+.spin-4     { transform: rotateX(-3839deg); }
+.spin-5     { transform: rotateX(-3869deg); }
+.spin-6     { transform: rotateX(-3899deg); }
+.spin-7     { transform: rotateX(-3929deg); }
+.spin-8     { transform: rotateX(-3959deg); }
+.spin-9     { transform: rotateX(-3989deg); }
+.spin-10    { transform: rotateX(-4019deg); }
+.spin-11    { transform: rotateX(-4049deg); }
+/*=====*/
+@keyframes back-spin {
+/*0%    { transform: rotateX(0deg); }*/
+100%  { transform: rotateX(30deg); }
+}
+
+@keyframes spiny {
+0%    { transform: rotateX(30deg); }
+100%  { transform: rotateX(-999999deg); }
+}
+
+#stage {
+z-index: 55;
+position: absolute;
+top:50%;
+left:50%;
+margin-left: -300px;
+margin-top: -200px;
+width: 600px;
+padding: 0 0 40px;
+transform: scale(1.1);
+}
+
+
+.slot p {
+font-size: 4px;
+font-weight: bold;
+line-height: 15px;
+text-align: center;
+overflow: visible;
+/* z-index: 20; */
+position: relative;
+
+}
+
+.slot {
+position: absolute;
+width: 100px;
+height: 22px;
+box-sizing: border-box;
+opacity: 1;
+color: #333;
+background-color: #fff;
+border: solid 2px #f9a627;
+-webkit-backface-visibility: none;
+ -moz-backface-visibility: none;
+      backface-visibility: none;
+}
+
+.statue1{
+    position: absolute;
+    bottom:20px;
+    left:50%;
+    margin-left: -390px;
+    z-index: 2000;
+    width: 200px;
+}
+
+.blurred-box{
+    z-index: 99;
+  position: absolute;
+  width: 250px;
+  height: 350px;
+  top: calc(50% - 175px);
+  left: calc(50% - 125px);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.blurred-box:after{
+ content: '';
+ width: 300px;
+ height: 300px;
+ background: inherit;
+ position: absolute;
+ left: -25px;
+
+ right: 0;
+ top: -25px;
+ bottom: 0;
+ box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+ filter: blur(10px);
+}

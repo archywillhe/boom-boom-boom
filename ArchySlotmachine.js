@@ -82,15 +82,20 @@ function spin() {
 	}
 
 function getNameBasedOnFinalDegree(deg){
-    var initAngleOfMiddle = 720
+    var initAngleOfMiddle = 719
     var indexAt0 = _.findIndex(allDegrees, function(x){return x >= initAngleOfMiddle})
-    console.log(arrayData[indexAt0])
+    console.log(indexAt0, arrayData[indexAt0])
     if(!_.isUndefined(deg)){
-    let partitioning = 360 / arrayData.length
-    let indx = Math.round(deg * partitioning)
-    console.log(indx)
-    let currentIndx = (indexAt0 + indx) % arrayData.length
-    console.log(currentIndx,arrayData[currentIndx])
+    let newAngleofMiddle = deg
+    console.log("new",(-(newAngleofMiddle) + initAngleOfMiddle))
+    var newIndex = _.findIndex(allDegrees, function(x){return x >= (-(newAngleofMiddle) + initAngleOfMiddle)})
+    console.log(indexAt0, arrayData[newIndex])
+    return {name: arrayData[newIndex], index: newIndex}
+    // let partitioning = 360 / arrayData.length
+    // let indx = Math.round(deg * -partitioning)
+    // console.log(indx)
+    // let currentIndx = (indexAt0 + indx) % arrayData.length
+    // console.log(currentIndx,arrayData[currentIndx])
 }
 }
 
@@ -99,14 +104,20 @@ function pause(){
     let t = _getTransform(dom)
     console.log(t)
     let final = t.rotateX-50
-    getNameBasedOnFinalDegree(final)
+    var winner = getNameBasedOnFinalDegree(final)
     var anim = CSSAnimations.create('lol', {
     '0%': { 'transform': 'rotateX('+t.rotateX+'deg)' },
     '100%': { 'transform': 'rotateX('+final+'deg)' }
     });
-    setTimeout(function(){fworks.oneRoundPlease()},2000)
+    setTimeout(function(){
+        celebrate(winner)},2000)
     // $('#'+name).css("-webkit-animation-play-state", "paused");
     dom.css('animation','back-spin 2s, lol 2s forwards');
+}
+
+function celebrate(winner){
+    fworks.oneRoundPlease()
+    $(".slot").eq(winner.index).css({"color":"#28dd71"})
 }
 
 	console.log('=====');

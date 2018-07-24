@@ -82,7 +82,7 @@ function spin() {
 	}
 
 function getNameBasedOnFinalDegree(deg){
-    var initAngleOfMiddle = 720
+    var initAngleOfMiddle = 718
     var indexAt0 = _.findIndex(allDegrees, function(x){return x >= initAngleOfMiddle})
     console.log(indexAt0, arrayData[indexAt0])
     if(!_.isUndefined(deg)){

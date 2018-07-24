@@ -118,6 +118,10 @@ function pause(){
 function celebrate(winner){
     fworks.oneRoundPlease()
     $(".slot").eq(winner.index).css({"color":"#28dd71"})
+    $(".slot").eq(winner.index).append( "<div class='d'>from "+ apartmentOf(winner.name)+"</div>" );
+}
+function apartmentOf(name){
+    return _.find(people, function(a){return a.Name == name}).Department
 }
 
 	console.log('=====');

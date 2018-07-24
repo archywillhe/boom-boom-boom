@@ -163,7 +163,13 @@ text-align: center;
 overflow: visible;
 /* z-index: 20; */
 position: relative;
-
+}
+.slot .d{
+    position: absolute;
+    bottom:2px;
+    right:3px;
+    font-size: 3px;
+    line-height: 3px;
 }
 
 .slot {

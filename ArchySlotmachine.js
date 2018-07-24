@@ -117,6 +117,22 @@ function pause(){
      var isSpinning = false
 
      $(window).keydown(function(evt) {
+         // console.log(evt.which)
+         // //49 is 1, 50 is 2...
+         // switch (evt.which) {
+         //     case 49:
+         //     if(isSpinning){
+         //        pause();
+         //    }else{
+         //        spin()
+         //    }
+         //    isSpinning = ! isSpinning
+         //         break;
+         //     default:
+         //
+         // }
+     })
+     jQuery(document).bind('keydown', function (evt){
          console.log(evt.which)
          //49 is 1, 50 is 2...
          switch (evt.which) {
@@ -131,6 +147,6 @@ function pause(){
              default:
 
          }
-     })
+     });
      return spin
 }

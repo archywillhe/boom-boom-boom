@@ -1,6 +1,7 @@
 html, body {
 margin: 0;
 padding: 0;
+overflow: hidden;
 }
 
 body {
@@ -173,7 +174,7 @@ box-sizing: border-box;
 opacity: 1;
 color: #333;
 background-color: #fff;
-border: solid 2px #f9a627;
+border: solid 2px #777;
 -webkit-backface-visibility: none;
  -moz-backface-visibility: none;
       backface-visibility: none;
